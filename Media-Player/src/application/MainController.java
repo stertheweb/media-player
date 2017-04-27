@@ -21,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
@@ -30,8 +31,12 @@ public class MainController implements Initializable {
 	private Media media;
 	@FXML Slider volumeSlider;
 	@FXML Slider timeSlider;
+	@FXML Text timeElapsed;
+	private String minutesAsString;
+	private String secondsAsString;
 	private String filePath;
 	private final List listeners = new ArrayList();
+	private double durInSec;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -52,6 +57,16 @@ public class MainController implements Initializable {
 			DoubleProperty height = mediaView.fitHeightProperty();
 			width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
 			height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
+			mediaView.setPreserveRatio(true);
+			mediaPlayer.setOnReady(new Runnable() {
+				@Override
+				public void run() {
+					durInSec = media.getDuration().toSeconds();
+					timeSlider.setMax(durInSec);
+					mediaPlayer.play();
+					
+				}
+			});
 		}
 		volumeSlider.setValue(mediaPlayer.getVolume() * 100);
 		volumeSlider.valueProperty().addListener(new InvalidationListener() {
@@ -61,13 +76,26 @@ public class MainController implements Initializable {
 				mediaPlayer.setVolume(volumeSlider.getValue() / 100);
 			}
 		});
-		
 		mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
 
 			@Override
 			public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
+
 				
 		            timeSlider.setValue(newValue.toSeconds());
+
+				//synchronized (listeners) {
+		            //listeners.add("a");
+					double time = newValue.toSeconds();
+					int minutes =  (int) Math.floor(time/60);
+					int seconds = (int) Math.floor(time - minutes*60);
+					if(minutes > 99) {minutesAsString = String.format ("%03d", minutes);}
+					else minutesAsString = String.format ("%02d", minutes);
+					secondsAsString = String.format ("%02d", seconds);
+		            timeSlider.setValue(time);
+		            timeElapsed.setText(minutesAsString + ":" + secondsAsString);
+		        //}
+
 				
 				
 			}
