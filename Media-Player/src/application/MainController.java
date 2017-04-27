@@ -34,7 +34,7 @@ public class MainController implements Initializable {
 	private final List listeners = new ArrayList();
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//String path = new File("src/media/Paskuda.mp4").getAbsolutePath();
+		
 	}
 
 	public void openFile(ActionEvent event) {
@@ -66,10 +66,8 @@ public class MainController implements Initializable {
 
 			@Override
 			public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
-				//synchronized (listeners) {
-		            //listeners.add("a");
+				
 		            timeSlider.setValue(newValue.toSeconds());
-		        //}
 				
 				
 			}
