@@ -1,4 +1,51 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-.button {
--fx-background-color: transparent;
-}
+
+
+ #stop{
+	
+	-fx-background-Image
+    -fx-background-size: 10 100;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+ }
+ 
+ #play{
+	-fx-background-Text: "Play"
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-background-icon: 
+ }
+ 
+ #Pause{
+	-fx-background-image: url("application/Pause.png");
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+ }
+ 
+ #fastForward{
+ 	-fx-background-image: url("application/Fast Forward.png");
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+ 
+ }
+ 
+ 
+ #slowDown{
+ 	-fx-background-image: url("application/Pause.png);
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+ 
+ }
+ 
+ #hbox{
+ 	-fx-background-color: blue;
+ }

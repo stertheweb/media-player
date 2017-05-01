@@ -13,6 +13,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.color.*?>
+
 
 <BorderPane prefHeight="775.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <top>
@@ -37,22 +40,23 @@
       </MenuBar>
    </top>
    <bottom>
-      <StackPane prefHeight="30.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+      <StackPane fx:id="stack" prefHeight="100.0" prefWidth="1400.0" BorderPane.alignment="CENTER" color="blue">
          <children>
-            <HBox alignment="CENTER" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" scaleShape="false">
+            <HBox fx:id="hbox" alignment="CENTER" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" scaleShape="false">
                <children>
+                  
+                  <Button fx:id="play" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#play" HBox.hgrow="NEVER" Text="Play">
+                     <HBox.margin>
+                       <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="pause" mnemonicParsing="false" onAction="#pause" text="||">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
                   <Slider fx:id="timeSlider" prefHeight="14.0" prefWidth="731.0" />
                   <Text fx:id="timeElapsed" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
-                  <Button fx:id="play" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#play" text="Play" HBox.hgrow="NEVER">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="pause" mnemonicParsing="false" onAction="#pause" text="Pause">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button fx:id="stop" mnemonicParsing="false" onAction="#stop" text="Stop">
                      <HBox.margin>
                         <Insets right="10.0" />
@@ -65,7 +69,12 @@
                   </Button>
                   <Button fx:id="slow" mnemonicParsing="false" onAction="#slowDown" text="Slow">
                      <HBox.margin>
-                        <Insets right="40.0" />
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="repeat" mnemonicParsing="false" onAction="#repeat" text="Repeat">
+                     <HBox.margin>
+                        <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
                   <Slider fx:id="volumeSlider">
