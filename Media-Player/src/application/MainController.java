@@ -6,10 +6,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
@@ -22,8 +19,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -38,10 +41,23 @@ public class MainController implements Initializable {
 	@FXML Slider volumeSlider;
 	@FXML Slider timeSlider;
 	@FXML Text timeElapsed;
+	@FXML Text timeDuration;
+	@FXML MediaView mediaView1;
+	@FXML Button play;
+	@FXML Button pause;
+	@FXML Button stop;
+	@FXML Button fast;
+	@FXML Button slow;
+	@FXML HBox hbox;
+	@FXML BorderPane borderPane;
+	@FXML BorderPane borderPaneonKeyPressed;
+	@FXML MenuBar menubar;
+	@FXML MenuItem openFile;
+	@FXML StackPane mediaStack;
+	@FXML StackPane buttonStack;
 	private String minutesAsString;
 	private String secondsAsString;
 	private String filePath;
-	private final List listeners = new ArrayList();
 	private double durInSec;
 	private boolean isPlaying = false;
 			
@@ -71,6 +87,12 @@ public class MainController implements Initializable {
 				public void run() {
 					durInSec = media.getDuration().toSeconds();
 					timeSlider.setMax(durInSec);
+					int minutes =  (int) Math.floor(durInSec/60);
+					int seconds = (int) Math.floor(durInSec - minutes*60);
+					if(minutes > 99) {minutesAsString = String.format ("%03d", minutes);}
+					else minutesAsString = String.format ("%02d", minutes);
+					secondsAsString = String.format ("%02d", seconds);
+					timeDuration.setText("/" + minutesAsString + ":" + secondsAsString);
 					mediaPlayer.play();
 					
 				}
@@ -91,9 +113,6 @@ public class MainController implements Initializable {
 
 				
 		            timeSlider.setValue(newValue.toSeconds());
-
-				//synchronized (listeners) {
-		            //listeners.add("a");
 					double time = newValue.toSeconds();
 					int minutes =  (int) Math.floor(time/60);
 					int seconds = (int) Math.floor(time - minutes*60);
