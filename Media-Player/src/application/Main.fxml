@@ -20,34 +20,24 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem fx:id="openFile" mnemonicParsing="false" onAction="#openFile" text="Open File" />
-            </items>
+             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Donate">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#donate" text="Go to webpage" />
-              </items>
-            </Menu>
+          <Menu mnemonicParsing="false" text="Donate">
+             <items>
+               <MenuItem mnemonicParsing="false" onAction="#donate" text="Go to webpage" />
+             </items>
+           </Menu>
         </menus>
       </MenuBar>
    </top>
    <bottom>
-      <StackPane prefHeight="30.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+      <StackPane minHeight="-Infinity" prefHeight="60.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" scaleShape="false">
+            <HBox fx:id="hbox" alignment="CENTER" maxHeight="30.0" minHeight="-Infinity" prefHeight="50.0" scaleShape="false">
                <children>
                   <Slider fx:id="timeSlider" prefHeight="14.0" prefWidth="705.0" />
                   <Text fx:id="timeElapsed" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
-                  <Button fx:id="play" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#play" prefHeight="29.0" prefWidth="44.0" text="►" HBox.hgrow="NEVER">
+                  <Button fx:id="play" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#play" prefHeight="35.0" prefWidth="35.0" HBox.hgrow="NEVER">
                      <HBox.margin>
                         <Insets left="30.0" right="10.0" />
                      </HBox.margin>
@@ -55,22 +45,22 @@
                         <Insets />
                      </opaqueInsets>
                   </Button>
-                  <Button fx:id="pause" mnemonicParsing="false" onAction="#pause" prefHeight="29.0" prefWidth="45.0" text="||">
+                  <Button fx:id="pause" mnemonicParsing="false" onAction="#pause" prefHeight="35.0" prefWidth="35.0">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="stop" mnemonicParsing="false" onAction="#stop" prefHeight="29.0" prefWidth="44.0" text="◼">
+                  <Button fx:id="stop" mnemonicParsing="false" onAction="#stop" prefHeight="35.0" prefWidth="35.0">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="fast" mnemonicParsing="false" onAction="#fastForward" prefHeight="29.0" prefWidth="44.0" text="⏭">
+                  <Button fx:id="fast" mnemonicParsing="false" onAction="#fastForward" prefHeight="35.0" prefWidth="35.0">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="slow" mnemonicParsing="false" onAction="#slowDown" prefHeight="29.0" prefWidth="45.0" text="⏮">
+                  <Button fx:id="slow" mnemonicParsing="false" onAction="#slowDown" prefHeight="35.0" prefWidth="35.0" >
                      <HBox.margin>
                         <Insets right="40.0" />
                      </HBox.margin>
@@ -86,7 +76,7 @@
       </StackPane>
    </bottom>
    <center>
-      <StackPane>
+      <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" BorderPane.alignment="TOP_LEFT">
          <children>
             <MediaView fx:id="mediaView" onKeyPressed="#playOrStop">
                <viewport>
