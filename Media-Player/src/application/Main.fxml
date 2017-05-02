@@ -7,7 +7,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -33,6 +32,11 @@
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Donate">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Go to webpage" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>
@@ -41,29 +45,32 @@
          <children>
             <HBox alignment="CENTER" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" scaleShape="false">
                <children>
-                  <Slider fx:id="timeSlider" prefHeight="14.0" prefWidth="731.0" />
+                  <Slider fx:id="timeSlider" prefHeight="14.0" prefWidth="705.0" />
                   <Text fx:id="timeElapsed" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
-                  <Button fx:id="play" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#play" text="Play" HBox.hgrow="NEVER">
+                  <Button fx:id="play" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#play" prefHeight="29.0" prefWidth="44.0" text="►" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets left="30.0" right="10.0" />
+                     </HBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="pause" mnemonicParsing="false" onAction="#pause" prefHeight="29.0" prefWidth="45.0" text="||">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="pause" mnemonicParsing="false" onAction="#pause" text="Pause">
+                  <Button fx:id="stop" mnemonicParsing="false" onAction="#stop" prefHeight="29.0" prefWidth="44.0" text="◼">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="stop" mnemonicParsing="false" onAction="#stop" text="Stop">
+                  <Button fx:id="fast" mnemonicParsing="false" onAction="#fastForward" prefHeight="29.0" prefWidth="44.0" text="⏭">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="fast" mnemonicParsing="false" onAction="#fastForward" text="Fast">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="slow" mnemonicParsing="false" onAction="#slowDown" text="Slow">
+                  <Button fx:id="slow" mnemonicParsing="false" onAction="#slowDown" prefHeight="29.0" prefWidth="45.0" text="⏮">
                      <HBox.margin>
                         <Insets right="40.0" />
                      </HBox.margin>
