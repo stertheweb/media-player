@@ -54,7 +54,7 @@
  
  #hbox{
  	-fx-opacity: 0.05;	
- 	-fx-background-color: LIGHTBLUE;
+ 	-fx-background-color: SLATEGRAY;
  }
  
  #hbox:hover{
