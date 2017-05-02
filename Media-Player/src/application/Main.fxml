@@ -13,7 +13,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="775.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<BorderPane onKeyPressed="#playOrStop" prefHeight="775.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <top>
       <MenuBar minHeight="25.0" prefHeight="25.0" scaleShape="false" BorderPane.alignment="CENTER">
         <menus>
@@ -29,12 +29,12 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Donate">
               <items>
-                <MenuItem mnemonicParsing="false" text="Go to webpage" />
+                <MenuItem mnemonicParsing="false" onAction="#donate" text="Go to webpage" />
               </items>
             </Menu>
         </menus>
@@ -88,7 +88,12 @@
    <center>
       <StackPane>
          <children>
-            <MediaView fx:id="mediaView">
+            <MediaView fx:id="mediaView" onKeyPressed="#playOrStop">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </MediaView>
+            <MediaView fx:id="mediaView1" layoutX="650.0" layoutY="370.0" onKeyPressed="#playOrStop">
                <viewport>
                   <Rectangle2D />
                </viewport>

@@ -1,6 +1,10 @@
 package application;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +20,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -37,6 +43,8 @@ public class MainController implements Initializable {
 	private String filePath;
 	private final List listeners = new ArrayList();
 	private double durInSec;
+	private boolean isPlaying = false;
+			
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -121,11 +129,31 @@ public class MainController implements Initializable {
 		timeSlider.setPrefHeight(50);
 		mediaPlayer.play();
 	}
+	
+	public void about(){
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information Dialog");
+		alert.setHeaderText(null);
+		alert.setContentText("This is a video player build by a team of four extremely talented students. It is able to play mp4 video files."
+				+ " Basic functionality includes the ability to play, pause, stop, fast forward, slow down and switch to full screen by double"
+				+ " clicking the frame.");
+
+		alert.showAndWait();
+	}
+	
+	public void donate() throws IOException, URISyntaxException{
+		if(Desktop.isDesktopSupported())
+		{
+		  Desktop.getDesktop().browse(new URI("https://www.gofundme.com/worlds-best-media-player"));
+		}
+	}
 	public void play(ActionEvent event) {
 		mediaPlayer.play();
+		isPlaying = true;
 		mediaPlayer.setRate(1);
 	}
 	public void pause(ActionEvent event) {
+		isPlaying = false;
 		mediaPlayer.pause();
 	}
 	public void fastForward(ActionEvent event) {
@@ -137,5 +165,15 @@ public class MainController implements Initializable {
 	public void stop(ActionEvent event) {
 		mediaPlayer.seek(mediaPlayer.getTotalDuration());
 		mediaPlayer.stop();
+	}
+	public void playOrStop(){
+		if (isPlaying){
+			mediaPlayer.pause();
+			isPlaying = false;
+		}
+		else {
+			mediaPlayer.play();
+			isPlaying = true;
+		}
 	}
 }
