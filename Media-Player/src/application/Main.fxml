@@ -27,6 +27,11 @@
                <MenuItem mnemonicParsing="false" onAction="#donate" text="Go to webpage" />
              </items>
            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>
