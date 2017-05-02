@@ -13,9 +13,9 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane onKeyPressed="#playOrStop" prefHeight="805.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<BorderPane fx:id="borderPaneonKeyPressed" onKeyPressed="#playOrStop" prefHeight="805.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <top>
-      <MenuBar minHeight="25.0" prefHeight="25.0" scaleShape="false" BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menubar" minHeight="25.0" prefHeight="25.0" scaleShape="false" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -31,12 +31,13 @@
       </MenuBar>
    </top>
    <bottom>
-      <StackPane minHeight="-Infinity" prefHeight="60.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+      <StackPane fx:id="buttonStack" minHeight="-Infinity" prefHeight="60.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
             <HBox fx:id="hbox" alignment="CENTER" maxHeight="30.0" minHeight="-Infinity" prefHeight="50.0" scaleShape="false">
                <children>
                   <Slider fx:id="timeSlider" prefHeight="14.0" prefWidth="705.0" />
                   <Text fx:id="timeElapsed" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
+                  <Text fx:id="timeDuration" strokeType="OUTSIDE" strokeWidth="0.0" text="/00:00" />
                   <Button fx:id="play" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#play" prefHeight="35.0" prefWidth="35.0" HBox.hgrow="NEVER">
                      <HBox.margin>
                         <Insets left="30.0" right="10.0" />
@@ -60,7 +61,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="slow" mnemonicParsing="false" onAction="#slowDown" prefHeight="35.0" prefWidth="35.0" >
+                  <Button fx:id="slow" mnemonicParsing="false" onAction="#slowDown" prefHeight="35.0" prefWidth="35.0">
                      <HBox.margin>
                         <Insets right="40.0" />
                      </HBox.margin>
@@ -76,7 +77,7 @@
       </StackPane>
    </bottom>
    <center>
-      <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" BorderPane.alignment="TOP_LEFT">
+      <StackPane fx:id="mediaStack" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" BorderPane.alignment="TOP_LEFT">
          <children>
             <MediaView fx:id="mediaView" onKeyPressed="#playOrStop">
                <viewport>
