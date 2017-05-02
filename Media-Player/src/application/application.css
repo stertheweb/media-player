@@ -2,7 +2,7 @@
 
 
  #stop{
- 	-fx-background-image: url("../Media-Player/Stop.png");
+ 	-fx-background-image: url("../images/Stop.png");
     -fx-background-size: 32 32;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -10,7 +10,7 @@
  }
  
  #play{
- 	-fx-background-image: url("../Media-Player/Play.png");
+ 	-fx-background-image: url("../images/Play.png");
     -fx-background-size: 32 32;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -18,7 +18,7 @@
  }
  
  #pause{
-	-fx-background-image: url("../Media-Player/Pause.png");
+	-fx-background-image: url("../images/Pause.png");
     -fx-background-size: 32 32;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -26,7 +26,7 @@
  }
  
  #fast{
- 	-fx-background-image: url("../Media-Player/FastForward.png");
+ 	-fx-background-image: url("../images/FastForward.png");
     -fx-background-size: 32 32;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -36,7 +36,7 @@
  
  
  #slow{
- 	-fx-background-image: url("../Media-Player/Rewind.png");
+ 	-fx-background-image: url("../images/Rewind.png");
     -fx-background-size: 32 32;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -45,7 +45,7 @@
  }
  
  #repeat{
- 	-fx-background-image: url("../Media-Player/Repeat.png");
+ 	-fx-background-image: url("../images/Repeat.png");
     -fx-background-size: 32 32;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
