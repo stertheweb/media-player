@@ -60,3 +60,15 @@
  #hbox:hover{
  	-fx-opacity: 1;
  }
+ 
+ #menubar {
+ 	-fx-background-color: LIGHTGRAY;
+ }
+ 
+#mediaStack {
+ 	-fx-background-color: LIGHTGRAY;
+ }
+ 
+ #buttonStack {
+ 	-fx-background-color: LIGHTGRAY;
+ }
